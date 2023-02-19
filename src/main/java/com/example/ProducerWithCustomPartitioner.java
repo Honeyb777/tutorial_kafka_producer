@@ -16,7 +16,7 @@ public class ProducerWithCustomPartitioner {
         configs.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         configs.put(ProducerConfig.PARTITIONER_CLASS_CONFIG, CustomPartitioner.class);
-        KafkaProducer<String, String> producer = new KafkaProducer<String, String>(configs);
+        KafkaProducer<String, String> producer = new KafkaProducer<>(configs);
 
         ProducerRecord<String, String> record = new ProducerRecord<>(TOPIC_NAME, "Pangyo", "Pangyo");
         producer.send(record);
